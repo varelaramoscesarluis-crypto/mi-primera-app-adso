@@ -36,6 +36,60 @@
             </ul>
         </section>
 
+        <section class="contacto">
+            <h2>Formulario de contacto</h2>
+            <p class="texto-contacto">
+             ¿Tienes una pregunta o una propuesta?
+             Completa el siguiente formulario.
+            </p>
+        </section>
+        
+        <form id="formularioContacto">
+            <!-- Aquí van los campos del formulario -->
+        </form>
+
+        <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre"
+                   placeholder="Escribe tu nombre" required minlength="3">
+        </div>
+
+        <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo"
+                   placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="campo">
+            <label for="asunto">Asunto</label>
+            <select id="asunto" name="asunto" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Consulta">Consulta</option>
+                <option value="Proyecto">Propuesta de proyecto</option>
+                <option value="Formacion">Formación</option>
+                <option value="Otro">Otro</option>
+            </select>
+        
+        </div>
+
+        <div class="campo">
+            <label for="mensajeContacto">Mensaje</label>
+            <textarea id="mensajeContacto" name="mensaje" rows="5"
+                      placeholder="Escribe tu mensaje..." required minlength="10"></textarea>
+        </div>
+
+        <button type="submit" class="boton-enviar">
+            Enviar mensaje
+        </button>
+
+        <p id="respuestaFormulario"
+        class="respuesta-formulario"
+        role="status"
+        aria-live="polite"></p>
+    </form>
+</section>
+
+
         <button id="botonMensaje">
             conoce mi proposito
         </button>

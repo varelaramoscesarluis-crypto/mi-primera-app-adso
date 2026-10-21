@@ -1,7 +1,7 @@
 /* ===== Tarjeta de presentación: tema placa de circuito (PCB) ===== */
- 
+
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap");
- 
+
 :root {
     --placa: #0e3b2f;          /* verde de placa */
     --placa-oscura: #072019;   /* fondo de la página */
@@ -9,17 +9,17 @@
     --cobre-claro: #efb97a;    /* LED y detalles activos */
     --serigrafia: #ece7da;     /* texto blanco de serigrafía */
     --chip: #1c2824;           /* encapsulado del circuito integrado */
- 
+
     --fuente-titulo: "Chakra Petch", "Segoe UI", sans-serif;
     --fuente-texto: "IBM Plex Sans", "Segoe UI", sans-serif;
 }
- 
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
- 
+
 body {
     min-height: 100vh;
     display: grid;
@@ -33,7 +33,7 @@ body {
     background-image: radial-gradient(circle, rgba(201, 139, 75, 0.22) 1.5px, transparent 1.5px);
     background-size: 28px 28px;
 }
- 
+
 /* ----- Tarjeta ----- */
 .tarjeta {
     position: relative;
@@ -44,7 +44,7 @@ body {
     border-radius: 14px;
     box-shadow: 0 0 0 6px var(--placa-oscura), 0 0 0 7px rgba(201, 139, 75, 0.45);
 }
- 
+
 /* orificios de montaje en las esquinas */
 .tarjeta::before,
 .tarjeta::after {
@@ -57,10 +57,10 @@ body {
     background: var(--placa-oscura);
     border: 2px solid var(--cobre);
 }
- 
+
 .tarjeta::before { left: 12px; }
 .tarjeta::after  { right: 12px; }
- 
+
 /* ----- Encabezado ----- */
 .encabezado {
     text-align: center;
@@ -68,7 +68,7 @@ body {
     padding-bottom: 1.5rem;
     border-bottom: 2px dashed rgba(201, 139, 75, 0.55);
 }
- 
+
 /* El ícono se dibuja como un circuito integrado con patas */
 .icono {
     position: relative;
@@ -84,7 +84,7 @@ body {
     background: var(--chip);
     border-radius: 6px;
 }
- 
+
 .icono::before,
 .icono::after {
     content: "";
@@ -98,10 +98,10 @@ body {
         transparent 6px 12px
     );
 }
- 
+
 .icono::before { left: -9px; }
 .icono::after  { right: -9px; }
- 
+
 h1 {
     font-family: var(--fuente-titulo);
     font-size: clamp(1.6rem, 6vw, 2.1rem);
@@ -109,7 +109,7 @@ h1 {
     line-height: 1.2;
     letter-spacing: 0.01em;
 }
- 
+
 .profecion {
     margin-top: 0.35rem;
     font-family: var(--fuente-titulo);
@@ -117,17 +117,17 @@ h1 {
     font-weight: 500;
     color: var(--cobre-claro);
 }
- 
+
 .cargo {
     font-size: 0.95rem;
     opacity: 0.85;
 }
- 
+
 /* ----- Secciones ----- */
 section {
     margin-bottom: 1.75rem;
 }
- 
+
 h2 {
     margin-bottom: 0.75rem;
     font-family: var(--fuente-titulo);
@@ -135,23 +135,23 @@ h2 {
     font-weight: 700;
     color: var(--cobre-claro);
 }
- 
+
 .presentacion p {
     max-width: 60ch;
 }
- 
+
 /* Lista con almohadillas de soldadura como viñetas */
 ul {
     list-style: none;
     display: grid;
     gap: 0.6rem;
 }
- 
+
 li {
     position: relative;
     padding-left: 1.75rem;
 }
- 
+
 li::before {
     content: "";
     position: absolute;
@@ -162,13 +162,14 @@ li::before {
     border-radius: 50%;
     background: radial-gradient(circle, var(--placa-oscura) 3px, var(--cobre) 3.5px);
 }
- 
+
 /* ----- Botón y mensaje ----- */
 #botonMensaje {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     width: 100%;
+    margin-top: 2.5rem;                    /* separación respecto al formulario */
     padding: 0.85rem 1.25rem;
     font-family: var(--fuente-titulo);
     font-size: 1.05rem;
@@ -181,21 +182,21 @@ li::before {
     cursor: pointer;
     transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
 }
- 
+
 #botonMensaje:hover {
     background: var(--cobre-claro);
 }
- 
+
 #botonMensaje:active {
     transform: translateY(3px);
     box-shadow: 0 1px 0 #8d5b28;
 }
- 
+
 #botonMensaje:focus-visible {
     outline: 3px solid var(--serigrafia);
     outline-offset: 3px;
 }
- 
+
 /* LED del botón: se enciende cuando el mensaje está visible */
 #botonMensaje::before {
     content: "";
@@ -206,12 +207,12 @@ li::before {
     background: #6b4520;
     transition: background 0.2s ease, box-shadow 0.2s ease;
 }
- 
+
 #botonMensaje[aria-expanded="true"]::before {
     background: #fff3d6;
     box-shadow: 0 0 8px 3px rgba(255, 243, 214, 0.8);
 }
- 
+
 .mensaje {
     margin-top: 1.25rem;
     padding: 1rem 1.1rem;
@@ -219,11 +220,11 @@ li::before {
     border-left: 4px solid var(--cobre-claro);
     border-radius: 0 8px 8px 0;
 }
- 
+
 .oculto {
     display: none;
 }
- 
+
 /* cursor parpadeante mientras se "escribe" el mensaje */
 .mensaje.escribiendo::after {
     content: "▌";
@@ -231,11 +232,11 @@ li::before {
     color: var(--cobre-claro);
     animation: parpadeo 0.8s steps(1) infinite;
 }
- 
+
 @keyframes parpadeo {
     50% { opacity: 0; }
 }
- 
+
 /* ----- Pie ----- */
 footer {
     margin-top: 1.75rem;
@@ -245,11 +246,136 @@ footer {
     opacity: 0.8;
     border-top: 2px dashed rgba(201, 139, 75, 0.55);
 }
- 
+
 /* ----- Accesibilidad ----- */
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
         animation: none !important;
     }
+}
+
+/* ===== Formulario de contacto ===== */
+.texto-contacto {
+    max-width: 60ch;
+    margin-bottom: 1.1rem;
+}
+
+#formularioContacto {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.campo {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.campo label {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font: inherit;
+    color: var(--serigrafia);
+    color-scheme: dark;                      /* desplegable del select en oscuro */
+    background: rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(201, 139, 75, 0.5);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.campo ::placeholder {
+    color: rgba(236, 231, 218, 0.5);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--cobre-claro);
+    box-shadow: 0 0 0 3px rgba(239, 185, 122, 0.3);
+}
+
+/* Estado de error por campo */
+.campo.con-error input,
+.campo.con-error select,
+.campo.con-error textarea {
+    border-color: #f0907c;
+}
+
+.error-campo {
+    font-size: 0.85rem;
+    color: #f5a999;
+}
+
+.error-campo:empty {
+    display: none;
+}
+
+/* Botón de enviar (mismo pulsador de cobre) */
+.boton-enviar {
+    padding: 0.85rem 1.25rem;
+    font-family: var(--fuente-titulo);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--placa-oscura);
+    background: var(--cobre);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 0 #8d5b28;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+.boton-enviar:hover {
+    background: var(--cobre-claro);
+}
+
+.boton-enviar:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #8d5b28;
+}
+
+.boton-enviar:focus-visible {
+    outline: 3px solid var(--serigrafia);
+    outline-offset: 3px;
+}
+
+.boton-enviar:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #8d5b28;
+}
+
+/* Mensaje de resultado */
+.respuesta-formulario {
+    padding: 0.8rem 1rem;
+    border-left: 4px solid;
+    border-radius: 0 8px 8px 0;
+}
+
+.respuesta-formulario:empty {
+    display: none;
+}
+
+.respuesta-formulario.exito {
+    border-color: #a5e6b8;
+    background: rgba(165, 230, 184, 0.12);
+}
+
+.respuesta-formulario.error {
+    border-color: #f0907c;
+    background: rgba(240, 144, 124, 0.12);
 }
